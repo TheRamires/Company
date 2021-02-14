@@ -1,0 +1,63 @@
+package ram.ramires.company3.adapters
+
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import ram.ramires.company3.R
+import ram.ramires.company3.data.Company
+import ram.ramires.company3.databinding.ItemViewBinding
+import ram.ramires.company3.utilities.BUNDLE_ARGUMENT
+
+class RecyclerViewAdapter : ListAdapter<Company, RecyclerView.ViewHolder>(CompanyDiffCallback()) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return CompanyViewHolder(
+            ItemViewBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val company = getItem(position)
+        (holder as CompanyViewHolder).bind(company)
+        holder.itemView.setOnClickListener {
+            Log.d("myLog", "Recycler Id is " + company.id)
+
+            var bundle= Bundle()
+            bundle.putString(BUNDLE_ARGUMENT, company.id)
+            Navigation.findNavController(it).navigate(R.id.action_listFragment_to_detailFragment,bundle)
+
+        }
+    }
+
+    class CompanyViewHolder(
+        private val binding: ItemViewBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: Company) {
+            binding.apply {
+                bind = item
+                executePendingBindings()
+            }
+        }
+    }
+}
+
+private class CompanyDiffCallback : DiffUtil.ItemCallback<Company>() {
+
+    override fun areItemsTheSame(oldItem: Company, newItem: Company): Boolean {
+        return oldItem.id.equals(newItem.id)
+    }
+
+    override fun areContentsTheSame(oldItem: Company, newItem: Company): Boolean {
+        return oldItem.equals(newItem)
+    }
+}
