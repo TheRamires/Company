@@ -50,12 +50,6 @@ class Company {
     }
 
     fun setDescription(description: String?) {
-
-       /* val result = description?.replace(
-            ' ', // old char
-            '♥', // new char
-            true // ignore case Boolean = false
-        )*/
         this.description = description
     }
 
