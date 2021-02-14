@@ -1,40 +1,101 @@
 package ram.ramires.company3.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+import androidx.annotation.NonNull
+class Company {
+    private var id: String? = null
 
-@Entity(tableName = "companyes")
-class Company (
-    @PrimaryKey
-    @SerializedName("id")
-    @Expose
-    var id: String,
+    private var name: String? = null
+    @NonNull
+    private var img: String=""
 
-    @SerializedName("name")
-    @Expose
-    var name: String,
+    private var description: String? = null
 
-    @SerializedName("img")
-    @Expose
-    var img: String,
+    private var lat: Double? = null
 
-    @SerializedName("description")
-    @Expose
-    var description: String,
+    private var lon: Double? = null
 
-    @SerializedName("lat")
-    @Expose
-    var lat: Double,
+    private var www: String? = null
 
-    @SerializedName("lon")
-    @Expose
-    var lon: Double,
+    private var phone: String? = null
 
-    @SerializedName("www")
-    var www: String,
+    private var city: String?=null
 
-    @SerializedName("phone")
-    @Expose
-    var phone: String )
+
+    fun getId(): String? {
+        return id
+    }
+
+    fun setId(id: String?) {
+        this.id = id
+    }
+
+    fun getName(): String? {
+        return name
+    }
+
+    fun setName(name: String?) {
+        this.name = name
+    }
+
+    fun getImg(): String? {
+        return img
+    }
+
+    fun setImg(img: String) {
+        this.img = img!!
+    }
+
+    fun getDescription(): String? {
+        return description
+    }
+
+    fun setDescription(description: String?) {
+
+       /* val result = description?.replace(
+            ' ', // old char
+            '♥', // new char
+            true // ignore case Boolean = false
+        )*/
+        this.description = description
+    }
+
+    fun getLat(): Double? {
+        return lat
+    }
+
+    fun setLat(lat: Double?) {
+        this.lat = lat
+    }
+
+    fun getLon(): Double? {
+        return lon
+    }
+
+    fun setLon(lon: Double?) {
+        this.lon = lon
+    }
+
+    fun getWww(): String? {
+        return www
+    }
+
+    fun setWww(www: String?) {
+        this.www = www
+    }
+
+    fun getPhone(): String? {
+        return phone
+    }
+
+    fun setPhone(phone: String?) {
+        this.phone = phone
+    }
+    fun getCity(): String? {
+        return city
+    }
+
+    fun setCity(city: String?) {
+        this.city = city
+    }
+
+}

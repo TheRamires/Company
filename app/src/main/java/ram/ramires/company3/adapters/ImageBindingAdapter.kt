@@ -16,7 +16,7 @@ import ram.ramires.company3.utilities.BASE_URL
         Picasso
             .with(imageView.context)
             .load(urlll)
-            .resize(150, 150)
-            .error(R.drawable.ic_launcher_foreground)
+            .resize(400, 400)
+            //.error(R.drawable.ic_launcher_foreground)
             .into(imageView)
     }

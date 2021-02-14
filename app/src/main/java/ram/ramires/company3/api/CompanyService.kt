@@ -1,6 +1,7 @@
 package ram.ramires.company3.api
 
 import kotlinx.coroutines.Deferred
+import okhttp3.ResponseBody
 import ram.ramires.company3.data.Company
 import ram.ramires.company3.utilities.BASE_URL
 import retrofit2.Call
@@ -12,6 +13,9 @@ import retrofit2.http.Query
 interface CompanyService {
     @GET("test.php?")
     fun getCompanyInfo(@Query("id") id: String): Call<List<Company>>?
+
+    @GET("test.php?")
+    fun emergencyRequest(@Query("id") id: String): Call<List<ResponseBody>>?
 
     @GET("test.php")
     fun getCompanyList(): Call<List<Company>>?

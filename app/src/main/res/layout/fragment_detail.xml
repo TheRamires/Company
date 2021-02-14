@@ -5,22 +5,79 @@
             name="detail"
             type="ram.ramires.company3.MyViewModel" />
     </data>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/my_gradient"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailFragment">
+    tools:context=".DetailFragment"
+    android:paddingLeft="5dp"
+    android:paddingVertical="5dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{detail.detail.get(0).name}" />
+        app:menu="@menu/menu_back"
+        />
+
     <ImageView
+        android:layout_alignParentLeft="true"
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:imageUrl="@{detail.detail.get(0).id}" />
+        app:imageUrl="@{detail.detail.id}" />
 
 
-</FrameLayout>
+    <TextView
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/name"
+        android:layout_below="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{detail.detail.name}" />
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/city"
+        android:layout_below="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{detail.detail.city}" />
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/www"
+        android:layout_below="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{detail.detail.www}" />
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/phone"
+        android:layout_below="@+id/www"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{detail.detail.phone}" />
+    <ScrollView
+        android:paddingTop="5dp"
+        android:layout_below="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginRight="50dp"
+            android:textSize="15sp"
+            android:scrollbars="vertical"
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{detail.detail.description}"
+            />
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
 </layout>

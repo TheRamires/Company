@@ -11,7 +11,7 @@ import ram.ramires.company3.data.Repository
 
 class MyViewModel(val repo : Repository) : ViewModel() {
     var list: MutableLiveData<List<Company>> = MutableLiveData()
-    var detail: ObservableField<List<Company>> = ObservableField()
+    var detail: ObservableField<Company> = ObservableField()
 
 
     fun requestList() {

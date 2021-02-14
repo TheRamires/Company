@@ -29,10 +29,10 @@ class RecyclerViewAdapter : ListAdapter<Company, RecyclerView.ViewHolder>(Compan
         val company = getItem(position)
         (holder as CompanyViewHolder).bind(company)
         holder.itemView.setOnClickListener {
-            Log.d("myLog", "Recycler Id is " + company.id)
+            Log.d("myLog", "Recycler Id is " + company.getId())
 
             var bundle= Bundle()
-            bundle.putString(BUNDLE_ARGUMENT, company.id)
+            bundle.putString(BUNDLE_ARGUMENT, company.getId())
             Navigation.findNavController(it).navigate(R.id.action_listFragment_to_detailFragment,bundle)
 
         }
@@ -54,7 +54,7 @@ class RecyclerViewAdapter : ListAdapter<Company, RecyclerView.ViewHolder>(Compan
 private class CompanyDiffCallback : DiffUtil.ItemCallback<Company>() {
 
     override fun areItemsTheSame(oldItem: Company, newItem: Company): Boolean {
-        return oldItem.id.equals(newItem.id)
+        return oldItem.getId().equals(newItem.getId())
     }
 
     override fun areContentsTheSame(oldItem: Company, newItem: Company): Boolean {
