@@ -53,22 +53,10 @@ interface  Repository {
                 }
 
             }catch(cause: Throwable){
-                catchRequest(id)
                 Log.d("myLog","requestDetail is catch "+cause )
 
 
             }
-        }
-        fun catchRequest(id: String) {
-            try {
-                val result=service.emergencyRequest(id)?.execute()
-                if (result!!.isSuccessful){
-                    Log.d("myLog","catchRequest" +
-                            ""+result.body()?.get(0).toString())
-                }
-                else{}
-            }
-            catch(cause: Throwable){}
         }
 }
 

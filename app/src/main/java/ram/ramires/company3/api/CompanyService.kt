@@ -14,9 +14,6 @@ interface CompanyService {
     @GET("test.php?")
     fun getCompanyInfo(@Query("id") id: String): Call<List<Company>>?
 
-    @GET("test.php?")
-    fun emergencyRequest(@Query("id") id: String): Call<List<ResponseBody>>?
-
     @GET("test.php")
     fun getCompanyList(): Call<List<Company>>?
 
