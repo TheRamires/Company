@@ -9,8 +9,7 @@ import androidx.fragment.app.Fragment
 import org.koin.android.viewmodel.ext.android.viewModel
 import ram.ramires.company3.adapters.RecyclerViewAdapter
 import ram.ramires.company3.databinding.FragmentListBinding
-
-import androidx.navigation.Navigation
+import ram.ramires.company3.data.Company
 import ram.ramires.company3.utilities.LOG
 
 

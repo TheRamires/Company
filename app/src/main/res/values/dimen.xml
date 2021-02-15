@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero_height">0dp</dimen>
+    <dimen name="layout_height">23dp</dimen>
+    <dimen name="text_size">20dp</dimen>
+    <dimen name="text_size2">16dp</dimen>
+</resources>

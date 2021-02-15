@@ -39,25 +39,28 @@
         android:layout_height="wrap_content"
         android:text="@{detail.detail.name}" />
     <TextView
-        android:textSize="15sp"
+        android:textStyle="italic"
+        android:textSize="@dimen/text_size"
         android:id="@+id/city"
         android:layout_below="@+id/name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@{detail.detail.cityIsFool ? @dimen/layout_height : @dimen/zero_height, default=wrap_content}"
         android:text="@{detail.detail.city}" />
     <TextView
-        android:textSize="15sp"
+        android:textStyle="italic"
+        android:textSize="@dimen/text_size"
         android:id="@+id/www"
         android:layout_below="@+id/city"
         android:layout_width="wrap_content"
-        android:layout_height= "wrap_content"
+        android:layout_height="@{detail.detail.wwwIsFool ? @dimen/layout_height : @dimen/zero_height, default=wrap_content}"
         android:text="@{detail.detail.www}" />
     <TextView
-        android:textSize="15sp"
+        android:textStyle="italic"
+        android:textSize="@dimen/text_size2"
         android:id="@+id/phone"
         android:layout_below="@+id/www"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@{detail.detail.phoneIsFool ? @dimen/layout_height : @dimen/zero_height, default=wrap_content}"
         android:text="@{detail.detail.phone}" />
     <ScrollView
         android:paddingTop="5dp"
@@ -65,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:layout_below="@+id/phone"
             android:layout_marginRight="50dp"
             android:textSize="15sp"
             android:scrollbars="vertical"
@@ -73,7 +77,6 @@
             android:layout_height="wrap_content"
             android:text="@{detail.detail.description}"
             />
-
     </ScrollView>
 </RelativeLayout>
 </layout>

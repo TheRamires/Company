@@ -6,23 +6,29 @@ import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
 
 class Company: BaseObservable() {
-    private var id: String? = null
+    private var id: String? = ""
 
-    private var name: String? = null
+    private var name: String? = ""
     @NonNull
     private var img: String=""
 
-    private var description: String? = null
+    private var description: String? = ""
 
-    private var lat: Double? = null
+    private var lat: Double? = 0.0
 
-    private var lon: Double? = null
+    private var lon: Double? = 0.0
 
-    private var www: String? = null
+    private var www: String? = ""
 
-    private var phone: String? = null
+    private var wwwIsFull: Boolean=false
 
-    private var city: String?=null
+    private var phone: String? = ""
+
+    private var phoneIsFull: Boolean=false
+
+    private var city: String?=""
+
+    private var cityIsFull: Boolean=false
 
 
     fun getId(): String? {
@@ -94,6 +100,40 @@ class Company: BaseObservable() {
 
     fun setCity(city: String?) {
         this.city = city
+    }
+
+    fun getCityIsFool(): Boolean {
+        if (!city.equals("")){
+            return true
+        }else{
+            return false
+        }
+    }
+    fun setCityIsFool(bool: Boolean){
+        cityIsFull=bool
+    }
+
+    fun getPhoneIsFool(): Boolean {
+        if (!phone.equals("")){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    fun setPhoneIsFool(bool: Boolean){
+        phoneIsFull=bool
+    }
+    fun getWwwIsFool(): Boolean {
+        if (!www.equals("")){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    fun setWwwIsFool(bool: Boolean){
+        wwwIsFull=bool
     }
 
 }

@@ -12,7 +12,6 @@ import ram.ramires.company3.data.Repository
 class MyViewModel(val repo: Repository) : ViewModel() {
     var list: MutableLiveData<List<Company>> = MutableLiveData()
     var detail: ObservableField<Company> = ObservableField()
-    var height: ObservableField<Boolean> =ObservableField()
 
     fun requestList() {
         // launch a coroutine in viewModelScope
