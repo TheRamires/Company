@@ -12,6 +12,7 @@ import ram.ramires.company3.R
 import ram.ramires.company3.data.Company
 import ram.ramires.company3.databinding.ItemViewBinding
 import ram.ramires.company3.utilities.BUNDLE_ARGUMENT
+import ram.ramires.company3.utilities.LOG
 
 class RecyclerViewAdapter : ListAdapter<Company, RecyclerView.ViewHolder>(CompanyDiffCallback()) {
 
@@ -29,7 +30,7 @@ class RecyclerViewAdapter : ListAdapter<Company, RecyclerView.ViewHolder>(Compan
         val company = getItem(position)
         (holder as CompanyViewHolder).bind(company)
         holder.itemView.setOnClickListener {
-            Log.d("myLog", "Recycler Id is " + company.getId())
+            Log.d(LOG, "Recycler Id is " + company.getId())
 
             var bundle= Bundle()
             bundle.putString(BUNDLE_ARGUMENT, company.getId())

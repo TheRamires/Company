@@ -11,6 +11,7 @@ import ram.ramires.company3.adapters.RecyclerViewAdapter
 import ram.ramires.company3.databinding.FragmentListBinding
 
 import androidx.navigation.Navigation
+import ram.ramires.company3.utilities.LOG
 
 
 class ListFragment : Fragment() {
@@ -34,7 +35,7 @@ class ListFragment : Fragment() {
 
     private fun subscribeUi(adapter: RecyclerViewAdapter) {
         myViewModel.list.observe(viewLifecycleOwner) { list ->
-            Log.d("myLog", "RecyclerViewList is  " + list.size)
+            Log.d(LOG, "RecyclerViewList is  " + list.size)
             adapter.submitList(list)
         }
     }

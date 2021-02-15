@@ -5,6 +5,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import ram.ramires.company3.adapters.GeoJCoder
 import ram.ramires.company3.api.CompanyService
+import ram.ramires.company3.utilities.LOG
 import java.util.concurrent.Executors
 
 val BACKGROUND = Executors.newFixedThreadPool(2)
@@ -13,21 +14,23 @@ interface  Repository {
     suspend fun requestDetail(id:String, detail: ObservableField<Company>){}
 
 }
-    class CompanyRepositoriy (val service: CompanyService, var geoJCoder: GeoJCoder) : Repository {
+    class CompanyRepositoriy (val service: CompanyService,
+                              val emergencyRepositoriy:EmergencyRepositoriy,
+                              var geoJCoder: GeoJCoder) : Repository {
 
         override suspend fun requestList(list: MutableLiveData<List<Company>>) {
             try {
                 val result= service.getCompanyList()?.execute()
                 if(result!!.isSuccessful){
-                    Log.d("myLog","requestList result is "+result.body()!!.size)
+                    Log.d(LOG,"requestList result is "+result.body()!!.size)
                     list.postValue(result.body())
 
                 }else{
-                    Log.d("myLog","requestList is full")
+                    Log.d(LOG,"requestList is full")
                 }
 
             }catch(cause: Throwable){
-                Log.d("myLog","requestList is catch "+cause )
+                Log.d(LOG,"requestList is catch "+cause )
 
             }
         }
@@ -35,7 +38,7 @@ interface  Repository {
             try {
                 val result= service.getCompanyInfo(id)?.execute()
                 if(result!!.isSuccessful){
-                    Log.d("myLog","requestDetail result is "+result.body()!!.size)
+                    Log.d(LOG,"requestDetail result is "+result.body()?.size)
 
                     var entity=result.body()?.get(0)
                     var lattitude=entity?.getLat()
@@ -48,15 +51,19 @@ interface  Repository {
                     detail.set(entity)
 
                 }else{
-                    Log.d("myLog","requestDetail is full")
+                    Log.d(LOG,"requestDetail is full")
 
                 }
 
             }catch(cause: Throwable){
-                Log.d("myLog","requestDetail is catch "+cause )
-
-
+                Log.d(LOG,"requestDetail is catch "+cause )
+                //--EMERGENCY !!!---------------------------------------------
+                emergencyRepositoriy.requestDeatil(id,detail)
             }
+        }
+        //result.body()?.string()
+        fun parsing(response: String){
+
         }
 }
 

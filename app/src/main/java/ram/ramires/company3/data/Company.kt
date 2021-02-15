@@ -1,7 +1,11 @@
 package ram.ramires.company3.data
 
 import androidx.annotation.NonNull
-class Company {
+import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
+import androidx.databinding.library.baseAdapters.BR
+
+class Company: BaseObservable() {
     private var id: String? = null
 
     private var name: String? = null

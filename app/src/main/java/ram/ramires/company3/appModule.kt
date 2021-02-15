@@ -10,7 +10,8 @@ import ram.ramires.company3.data.*
 
 val appModule = module {
     single { CompanyService.create()}
-    single<Repository> { CompanyRepositoriy(get(), geoJCoder= GeoJCoder(androidContext()))}
+    single { EmergencyRepositoriy(get()) }
+    single<Repository> { CompanyRepositoriy(get(), get(), geoJCoder= GeoJCoder(androidContext()))}
     // MyViewModel ViewModel
     viewModel { MyViewModel(get()) }
 }

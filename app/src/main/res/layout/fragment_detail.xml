@@ -30,7 +30,6 @@
         android:layout_height="wrap_content"
         app:imageUrl="@{detail.detail.id}" />
 
-
     <TextView
         android:textStyle="bold"
         android:textSize="20sp"
@@ -51,7 +50,7 @@
         android:id="@+id/www"
         android:layout_below="@+id/city"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height= "wrap_content"
         android:text="@{detail.detail.www}" />
     <TextView
         android:textSize="15sp"
@@ -76,8 +75,5 @@
             />
 
     </ScrollView>
-
-
-
 </RelativeLayout>
 </layout>

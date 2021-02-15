@@ -11,6 +11,7 @@
             type="ram.ramires.company3.data.Company" />
     </data>
 <FrameLayout
+    android:background="#EDF1FB"
     android:clickable="true"
     android:paddingVertical="2dp"
     android:layout_width="match_parent"
@@ -20,6 +21,7 @@
     >
 
     <TextView
+        android:textColor="@color/black"
         android:layout_marginVertical="3dp"
         android:textSize="23sp"
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
         android:text="@{bind.name}"/>
     <View
         android:background="@drawable/my_gradient"
-        android:alpha="0.6"
+        android:alpha="0.5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
